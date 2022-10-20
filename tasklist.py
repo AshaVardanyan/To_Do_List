@@ -4,7 +4,6 @@ from tkinter import *  # imports all functions of the library
 from tkinter import messagebox
 from turtle import right
 from PIL import ImageTk, Image
-import datetime
 
 
 def newTask():
