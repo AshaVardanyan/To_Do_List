@@ -1,38 +1,35 @@
 # Step 1. Importing moduls
-import tkinter
-from tkinter import *  # imports all functions of the library
+from tkinter import *  
 from tkinter import messagebox
-from turtle import right
 from PIL import ImageTk, Image
 
 
-def newTask():
+def new_task():
     task = entry_box.get()
     if task != "":
         lbox1.insert(END, task)
         entry_box.delete(0, "end")
     else:
         messagebox.showwarning("Please enter some task.")
-
-
-
-def deleteTask():
-    lbox1.delete(ANCHOR) #ANCHOR refers to the selected item in the Listbox.
 # Messagebox is used to display an error message when the
 # user clicks on the add button with an empty
 # entry box.
 
 
 
+def delete_task():
+    lbox1.delete(ANCHOR) #ANCHOR refers to the selected item in the Listbox.
+
+
+
 # Step 2. Creating the window
-windows = Tk()  # we create a window
-windows.geometry('450x450+450+200')  # shows sizes of the window
-windows.title('Your daily tasks ')  # the title of the window
-windows.resizable(width=True, height=True)  # is resizable our window or not
+windows = Tk()  
+windows.geometry('450x450+450+200')  
+windows.title('Your daily tasks ')  
+windows.resizable(width=True, height=True)  
 img = ImageTk.PhotoImage(Image.open("woodlights.png"))
 windows.config(bg='#6C331C')
-#gImage=PhotoImage(file="C:\Users\ASHKHEN\Documents\GitHub\To_Do_List\\woodlights.png")  # background image
-#windows.iconphoto(False, gImage)
+
 
 # Step 3. Creating a frame
 # Frame widgets are used to hold other widgets. We will place Listbox, scrollbars & buttons inside the frame.
@@ -63,11 +60,11 @@ lbox1.pack(side=LEFT, fill=BOTH)  #side-Left keeps the Listbox to the left side 
 # You add or delete whatever data you want.
 
 mylist = [
-    'Read 10 pages',
+    'Read 50 pages',
     '30 minutes of English',
-    'walking 1 hours',
+    'walking 1 hour',
     'write an essay',
-    'zoom meeting "Coaching and mentoring',
+    'zoom meeting' 
     ]
 
 
@@ -96,7 +93,7 @@ frforbuttons.pack(pady=20)
 
 # Step 9. Another buttons
 # adding a new task
-addTask_btn = Button(
+add_task_btn = Button(
     frforbuttons,
     text='Add Task',
     font=('Times',14),
@@ -104,22 +101,28 @@ addTask_btn = Button(
     fg='#FFFFFF',
     padx=20,
     pady=10,
-    command = newTask
+    command = new_task
 )
-addTask_btn.pack(fill=BOTH, expand=True, side=LEFT)
+add_task_btn.pack(fill=BOTH, expand=True, side=LEFT)
 
 # Deleting the task
 
-delTask_btn = Button(
+del_task_btn = Button(
     frforbuttons,
     text='Delete Task',
-    font=('times 14'),
+    font=('Times 14'),
     bg='#5A1904',
     fg='#FFFFFF',
     padx=20,
     pady=10,
-    command= deleteTask
+    command= delete_task
 )
-delTask_btn.pack(fill=BOTH, expand=True, side=LEFT)
+del_task_btn.pack(fill=BOTH, expand=True, side=LEFT)
 
 windows.mainloop()
+
+ 
+
+
+
+
